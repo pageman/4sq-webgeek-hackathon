@@ -22,7 +22,9 @@
         </activity>
 
         <activity android:name=".activity.MainActivity_"/>
-        <activity android:name=".activity.ActivityWebView_"/>
+        <activity android:name=".activity.ActivityWebView_"
+                  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+
 
         <service android:name=".GcmIntentService_"/>
 
