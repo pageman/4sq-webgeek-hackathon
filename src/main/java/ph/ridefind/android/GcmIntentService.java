@@ -45,7 +45,7 @@ public class GcmIntentService extends GCMBaseIntentService {
     private void notify(Bundle bundle) {
         Log.e(TAG, "Got this " + bundle);
 
-        int id = Integer.parseInt(bundle.getString("id"));
+        String id = bundle.getString("id");
         String name = bundle.getString("name");
 
         // Instantiate notif
