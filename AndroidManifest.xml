@@ -21,8 +21,9 @@
             </intent-filter>
         </activity>
 
+        <!--<activity android:name=".activity.MainActivity"/>-->
 
-        <service android:name=".GcmIntentService"/>
+        <service android:name=".GcmIntentService_"/>
 
         <receiver android:name="ph.ridefind.android.GcmReceiver"
                   android:permission="com.google.android.c2dm.permission.SEND">
