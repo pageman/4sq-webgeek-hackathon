@@ -2,6 +2,7 @@ package ph.ridefind.android.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.googlecode.androidannotations.annotations.AfterViews;
@@ -24,6 +25,7 @@ import java.util.List;
 
 @EFragment(R.layout.feed_list)
 public class TipListFragment extends SherlockFragment {
+    private static String TAG = TipListFragment.class.getSimpleName();
     private TipListAdapter adapter;
 
     @Pref
@@ -53,12 +55,18 @@ public class TipListFragment extends SherlockFragment {
     void pullTips() {
         boolean exists = preferences.fsqId().exists();
 
-        if (!exists) return;
+        Log.e(TAG, "-- -- -- -- -- -- -- -- -- -- -- -- -- ");
 
-        String fsqId = preferences.fsqId().get();
+        if (!exists) {
+            Log.e(TAG, "The id doesn't exist");
+        } else {
 
-        tips = webService.getTips(fsqId);
-        showTips(tips);
+            Log.e(TAG, "-- -- -- -- -- -- -- -- -- -- -- -- -- ");
+
+            String fsqId = preferences.fsqId().get();
+            tips = webService.getTips(fsqId);
+            showTips(tips);
+        }
     }
 
     @UiThread

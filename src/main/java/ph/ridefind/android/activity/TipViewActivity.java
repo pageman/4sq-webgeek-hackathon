@@ -31,8 +31,14 @@ public class TipViewActivity extends SherlockActivity {
     @AfterViews
     void afterViews() {
         Tip tip = TipListFragment_.tips.get(id);
-        title.setText(tip.getName());
-        desc.setText(tip.getDesc());
+
+        if (tip.getName() != null) {
+            title.setText(tip.getName());
+        }
+
+        if (tip.getDesc() != null) {
+            desc.setText(tip.getDesc());
+        }
 
         if (tip.getImageUrl() != null) {
             Drawable drawable = TipListAdapter.drawables.get(tip.getImageUrl());

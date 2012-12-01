@@ -50,10 +50,14 @@ public class FeedListAdapter extends BaseAdapter {
         }
 
         TextView name = (TextView) view.findViewById(R.id.name);
-        name.setText(feed.getName());
+        if (feed.getName() != null) {
+            name.setText(feed.getName());
+        }
 
         TextView desc = (TextView) view.findViewById(R.id.desc);
-        desc.setText(feed.getDesc());
+        if (feed.getDesc() != null) {
+            desc.setText(feed.getDesc());
+        }
 
         TextView date = (TextView) view.findViewById(R.id.date);
         date.setText(feed.getCreatedAt().toString());

@@ -31,8 +31,14 @@ public class FeedViewActivity extends SherlockActivity {
     @AfterViews
     void afterViews() {
         Feed feed = FeedListFragment_.feeds.get(id);
-        title.setText(feed.getName());
-        desc.setText(feed.getDesc());
+
+        if (feed.getName() != null) {
+            title.setText(feed.getName());
+        }
+
+        if (feed.getDesc() != null) {
+            desc.setText(feed.getDesc());
+        }
 
         if (feed.getImageUrl() != null) {
             Drawable drawable = FeedListAdapter.drawables.get(feed.getImageUrl());

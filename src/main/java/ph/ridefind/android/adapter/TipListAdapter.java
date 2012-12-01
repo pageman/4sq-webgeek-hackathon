@@ -50,10 +50,14 @@ public class TipListAdapter extends BaseAdapter {
         }
 
         TextView name = (TextView) view.findViewById(R.id.name);
-        name.setText(tip.getName());
+        if (tip.getName() != null) {
+            name.setText(tip.getName());
+        }
 
         TextView desc = (TextView) view.findViewById(R.id.desc);
-        desc.setText(tip.getDesc());
+        if (tip.getDesc() != null) {
+            desc.setText(tip.getDesc());
+        }
 
         TextView date = (TextView) view.findViewById(R.id.date);
         date.setText(tip.getCreatedAt().toString());
