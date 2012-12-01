@@ -12,6 +12,6 @@
 
     <string name="title">MallSquare</string>
 
-    <string name="info">You\'ve just checked in at {0}</string>
+    <string name="info">Checked in at {0}!</string>
 
 </resources>
