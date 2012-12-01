@@ -1,5 +1,6 @@
 package ph.ridefind.android.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import com.actionbarsherlock.app.SherlockFragment;
@@ -34,7 +35,7 @@ public class TipListFragment extends SherlockFragment {
     @Bean(WebServiceImpl.class)
     WebService webService;
 
-    private static List<Tip> tips = new ArrayList<Tip>();
+    public static List<Tip> tips = new ArrayList<Tip>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,5 +69,8 @@ public class TipListFragment extends SherlockFragment {
 
     @ItemClick
     void list(int position) {
+        Intent i = new Intent(getActivity(), TipViewActivity_.class);
+        i.putExtra("id", position);
+        startActivity(i);
     }
 }

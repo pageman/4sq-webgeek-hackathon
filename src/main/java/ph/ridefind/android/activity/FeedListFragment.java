@@ -1,5 +1,6 @@
 package ph.ridefind.android.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import com.actionbarsherlock.app.SherlockFragment;
@@ -35,7 +36,7 @@ public class FeedListFragment extends SherlockFragment {
     @Bean(WebServiceImpl.class)
     WebService webService;
 
-    private static List<Feed> feeds = new ArrayList<Feed>();
+    public static List<Feed> feeds = new ArrayList<Feed>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,8 @@ public class FeedListFragment extends SherlockFragment {
 
     @ItemClick
     void list(int position) {
+        Intent i = new Intent(getActivity(), FeedViewActivity_.class);
+        i.putExtra("id", position);
+        startActivity(i);
     }
-
 }

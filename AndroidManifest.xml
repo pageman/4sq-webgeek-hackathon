@@ -24,8 +24,14 @@
         <activity android:name=".activity.MainActivity_"/>
         <activity android:name=".activity.ActivityWebView_"
                   android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+
         <activity android:name=".activity.CategoryListActivity_"/>
+
         <activity android:name=".activity.CategoryViewActivity_"/>
+
+        <activity android:name=".activity.TipViewActivity_"/>
+
+        <activity android:name=".activity.FeedViewActivity_"/>
 
         <service android:name=".GcmIntentService_"/>
 
