@@ -1,6 +1,5 @@
 package ph.ridefind.android.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import com.actionbarsherlock.app.SherlockFragment;

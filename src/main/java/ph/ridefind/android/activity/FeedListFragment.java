@@ -2,6 +2,7 @@ package ph.ridefind.android.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.googlecode.androidannotations.annotations.AfterViews;
@@ -41,6 +42,8 @@ public class FeedListFragment extends SherlockFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e(TAG, "-- -- -- -- -- -- -- -- -- -- -- -- -- -- ");
+        Log.e(TAG, "Pulling feeds");
         pullFeeds();
     }
 
@@ -54,12 +57,13 @@ public class FeedListFragment extends SherlockFragment {
     void pullFeeds() {
         boolean exists = preferences.fsqId().exists();
 
-        if (!exists) return;
-
-        String fsqId = preferences.fsqId().get();
-
-        feeds = webService.getFeeds(fsqId);
-        showFeeds(feeds);
+        if (!exists) {
+            Log.e(TAG, "The id doesn't exist");
+        } else {
+            String fsqId = preferences.fsqId().get();
+            feeds = webService.getFeeds(fsqId);
+            showFeeds(feeds);
+        }
     }
 
     @UiThread
