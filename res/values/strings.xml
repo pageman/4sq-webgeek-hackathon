@@ -10,4 +10,8 @@
 
     <string name="api_root">http://localhost:3000/</string>
 
+    <string name="title">MallSquare</string>
+
+    <string name="info">You\'ve just checked in at {0}</string>
+
 </resources>
