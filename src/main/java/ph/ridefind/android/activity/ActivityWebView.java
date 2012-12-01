@@ -69,9 +69,11 @@ public class ActivityWebView
 
                     Log.v(TAG, "OAuth complete, token: [" + accessToken + "].");
 
+                    /*
                     Toast.makeText(ActivityWebView.this,
                             "Token: " + accessToken,
                             Toast.LENGTH_SHORT).show();
+                    */
                     preferences.edit().loggedIn().put(true).apply();
                     finish();
                 }
