@@ -26,10 +26,11 @@ public class FeedListFragment extends SherlockFragment {
         super.onCreate(savedInstanceState);
 
         List<Feed> feeds = new ArrayList<Feed>();
-        feeds.add(Feed.buildFeed(getString(R.string.lorem)));
-        feeds.add(Feed.buildFeed(getString(R.string.lorem)));
-        feeds.add(Feed.buildFeed(getString(R.string.lorem)));
-        feeds.add(Feed.buildFeed(getString(R.string.lorem)));
+        String url = "http://photos-b.ak.fbcdn.net/hphotos-ak-ash3/533540_380259988734115_1951594686_s.jpg";
+        feeds.add(Feed.buildFeed(getString(R.string.lorem), url));
+        feeds.add(Feed.buildFeed(getString(R.string.lorem), url));
+        feeds.add(Feed.buildFeed(getString(R.string.lorem), url));
+        feeds.add(Feed.buildFeed(getString(R.string.lorem), url));
 
         adapter = new FeedListAdapter(getActivity(), feeds);
     }

@@ -20,9 +20,10 @@ public class Feed {
     @JsonProperty("updated_at")
     private Date updatedAt;
 
-    public static Feed buildFeed(String desc) {
+    public static Feed buildFeed(String desc, String url) {
         Feed feed = new Feed();
         feed.setDesc(desc);
+        feed.setImageUrl(url);
         feed.setCreatedAt(new Date());
         feed.setUpdatedAt(new Date());
         return feed;
