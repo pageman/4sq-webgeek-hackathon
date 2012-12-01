@@ -45,6 +45,9 @@ public class FeedListAdapter extends BaseAdapter {
             view = layoutInflater.inflate(R.layout.feed_list_item, viewGroup, false);
         }
 
+        TextView name = (TextView) view.findViewById(R.id.name);
+        name.setText(feed.getName());
+
         TextView desc = (TextView) view.findViewById(R.id.desc);
         desc.setText(feed.getDesc());
 
