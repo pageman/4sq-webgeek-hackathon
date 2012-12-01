@@ -45,8 +45,14 @@ public class GcmIntentService extends GCMBaseIntentService {
     private void notify(Bundle bundle) {
         Log.e(TAG, "Got this " + bundle);
 
-        String id = bundle.getString("id");
-        String name = bundle.getString("name");
+        String fsqId = bundle.getString("id");
+
+        String mall = bundle.getString("name");
+
+        preferences.edit()
+                .mall().put(mall)
+                .fsqId().put(fsqId)
+                .apply();
 
         // Instantiate notif
         Notification notification = new Notification(R.drawable.icon, title, System.currentTimeMillis());
@@ -56,7 +62,7 @@ public class GcmIntentService extends GCMBaseIntentService {
         // Define message
         Intent notificationIntent = new Intent(this, MainActivity_.class);
         PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, PendingIntent.FLAG_ONE_SHOT);
-        notification.setLatestEventInfo(getApplicationContext(), title, format(info, name), contentIntent);
+        notification.setLatestEventInfo(getApplicationContext(), title, format(info, mall), contentIntent);
 
         // Pass notif to manager
         notificationManager.notify(__ID, notification);

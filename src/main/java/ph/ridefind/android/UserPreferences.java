@@ -5,5 +5,10 @@ import com.googlecode.androidannotations.annotations.sharedpreferences.SharedPre
 @SharedPref(value = SharedPref.Scope.UNIQUE)
 public interface UserPreferences {
     String registrationId();
+
     boolean loggedIn();
+
+    String mall();
+
+    String fsqId();
 }
