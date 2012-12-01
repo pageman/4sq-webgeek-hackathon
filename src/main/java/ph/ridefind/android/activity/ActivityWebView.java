@@ -73,7 +73,6 @@ public class ActivityWebView
                             "Token: " + accessToken,
                             Toast.LENGTH_SHORT).show();
                     */
-                    preferences.clear();
 
                     preferences.edit()
                             .loggedIn().put(true)
