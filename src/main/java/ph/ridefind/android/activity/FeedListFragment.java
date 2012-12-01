@@ -3,6 +3,7 @@ package ph.ridefind.android.activity;
 import android.os.Bundle;
 import android.widget.ListView;
 import com.actionbarsherlock.app.SherlockFragment;
+import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.Background;
 import com.googlecode.androidannotations.annotations.Bean;
 import com.googlecode.androidannotations.annotations.EFragment;
@@ -17,6 +18,7 @@ import ph.ridefind.android.model.Feed;
 import ph.ridefind.android.service.WebService;
 import ph.ridefind.android.service.WebServiceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @EFragment(R.layout.feed_list)
@@ -33,10 +35,18 @@ public class FeedListFragment extends SherlockFragment {
     @Bean(WebServiceImpl.class)
     WebService webService;
 
+    private static List<Feed> feeds = new ArrayList<Feed>();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pullFeeds();
+    }
+
+    @AfterViews
+    void afterViews() {
+        adapter = new FeedListAdapter(getActivity(), feeds);
+        list.setAdapter(adapter);
     }
 
     @Background
@@ -47,7 +57,7 @@ public class FeedListFragment extends SherlockFragment {
 
         String fsqId = preferences.fsqId().get();
 
-        List<Feed> feeds = webService.getFeeds(fsqId);
+        feeds = webService.getFeeds(fsqId);
         showFeeds(feeds);
     }
 
