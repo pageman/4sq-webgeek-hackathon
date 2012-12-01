@@ -20,6 +20,14 @@ public class Feed {
     @JsonProperty("updated_at")
     private Date updatedAt;
 
+    public static Feed buildFeed(String desc) {
+        Feed feed = new Feed();
+        feed.setDesc(desc);
+        feed.setCreatedAt(new Date());
+        feed.setUpdatedAt(new Date());
+        return feed;
+    }
+
     public Long getId() {
         return id;
     }

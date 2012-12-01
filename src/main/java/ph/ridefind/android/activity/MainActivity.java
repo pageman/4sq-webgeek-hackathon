@@ -36,6 +36,7 @@ public class MainActivity extends SherlockFragmentActivity {
         viewPager = (ViewPager) findViewById(R.id.pager);
 
         tabsAdapter = new TabsAdapter(this, tabHost, viewPager);
+
         tabsAdapter.addTab(
                 tabHost.newTabSpec("hello world").setIndicator("FOOBARBAZ"),
                 CategoryListFragment_.class,
@@ -45,6 +46,12 @@ public class MainActivity extends SherlockFragmentActivity {
         tabsAdapter.addTab(
                 tabHost.newTabSpec("jesus").setIndicator("christ"),
                 CategoryListFragment_.class,
+                null
+        );
+
+        tabsAdapter.addTab(
+                tabHost.newTabSpec("feeds").setIndicator("feeds"),
+                FeedListFragment_.class,
                 null
         );
 
