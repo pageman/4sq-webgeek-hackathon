@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Hello world</string>
+    <string name="app_name">MallSquare</string>
 
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut suscipit massa id risus consequat
         id porttitor libero tristique. Fusce sit amet elit nulla, id vulputate magna
     </string>
 
     <string name="title">Lorem ipsum dolor</string>
+
 
 </resources>
