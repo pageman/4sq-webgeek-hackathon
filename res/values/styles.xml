@@ -1,0 +1,44 @@
+<resources>
+    <style name="Theme.Sherlock.Light.Custom" parent="Theme.Sherlock.Light.DarkActionBar">
+        <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
+        <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
+
+        <item name="actionBarTabStyle">@style/tt</item>
+        <item name="android:actionBarTabStyle">@style/tt</item>
+
+        <item name="actionBarTabTextStyle">@style/t</item>
+        <item name="android:actionBarTabTextStyle">@style/t</item>
+    </style>
+
+    <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.Light.ActionBar">
+        <item name="background">@drawable/navbar</item>
+        <item name="android:background">@drawable/navbar</item>
+        <item name="android:titleTextStyle">@style/Widget.Styled.ActionBar.Text</item>
+    </style>
+
+    <style name="Widget.Styled.ActionBar.Text" parent="TextAppearance.Sherlock.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="t" parent="Widget.Sherlock.ActionBar.TabText">
+        <item name="android:textColor">@color/green</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="tt" parent="Widget.Sherlock.Light.ActionBar.TabView">
+        <item name="android:textColor">@color/green</item>
+        <item name="android:paddingLeft">1dip</item>
+        <item name="android:paddingRight">1dip</item>
+    </style>
+
+    <style name="parentContainer">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+
+</resources>
