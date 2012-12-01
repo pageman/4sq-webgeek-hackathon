@@ -1,11 +1,15 @@
 package ph.ridefind.android.model;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.util.Date;
 
+@JsonIgnoreProperties({"provider_id", "story", "feed_type"})
 public class Feed {
     private Long id;
+
+    private String name;
 
     private String desc;
 
@@ -35,6 +39,14 @@ public class Feed {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDesc() {
