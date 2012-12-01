@@ -8,5 +8,6 @@
 
     <string name="title">Lorem ipsum dolor</string>
 
+    <string name="api_root">http://localhost:3000/</string>
 
 </resources>
