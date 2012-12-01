@@ -6,14 +6,11 @@ import android.widget.TextView;
 import com.actionbarsherlock.R;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.Background;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.Extra;
-import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
+import ph.ridefind.android.adapter.FeedListAdapter;
 import ph.ridefind.android.model.Feed;
-
-import static ph.ridefind.android.helper.DrawableHelper.*;
 
 @EActivity(R.layout.feed_view)
 public class FeedViewActivity extends SherlockActivity {
@@ -36,21 +33,13 @@ public class FeedViewActivity extends SherlockActivity {
         Feed feed = FeedListFragment_.feeds.get(id);
         title.setText(feed.getName());
         desc.setText(feed.getDesc());
+
         if (feed.getImageUrl() != null) {
-            pullImage(feed.getImageUrl());
+            Drawable drawable = FeedListAdapter.drawables.get(feed.getImageUrl());
+            if (drawable != null) {
+                image.setImageDrawable(drawable.getConstantState().newDrawable());
+            }
         }
     }
 
-    @Background
-    void pullImage(String url) {
-        Drawable drawable = getDrawableFromURL(url);
-        setImage(drawable);
-    }
-
-    @UiThread
-    void setImage(Drawable drawable) {
-        if (drawable != null) {
-            image.setImageDrawable(drawable);
-        }
-    }
 }

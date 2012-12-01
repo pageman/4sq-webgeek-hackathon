@@ -6,14 +6,11 @@ import android.widget.TextView;
 import com.actionbarsherlock.R;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.Background;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.Extra;
-import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
+import ph.ridefind.android.adapter.TipListAdapter;
 import ph.ridefind.android.model.Tip;
-
-import static ph.ridefind.android.helper.DrawableHelper.*;
 
 @EActivity(R.layout.tip_view)
 public class TipViewActivity extends SherlockActivity {
@@ -36,21 +33,12 @@ public class TipViewActivity extends SherlockActivity {
         Tip tip = TipListFragment_.tips.get(id);
         title.setText(tip.getName());
         desc.setText(tip.getDesc());
+
         if (tip.getImageUrl() != null) {
-            pullImage(tip.getImageUrl());
-        }
-    }
-
-    @Background
-    void pullImage(String url) {
-        Drawable drawable = getDrawableFromURL(url);
-        setImage(drawable);
-    }
-
-    @UiThread
-    void setImage(Drawable drawable) {
-        if (drawable != null) {
-            image.setImageDrawable(drawable);
+            Drawable drawable = TipListAdapter.drawables.get(tip.getImageUrl());
+            if (drawable != null) {
+                image.setImageDrawable(drawable.getConstantState().newDrawable());
+            }
         }
     }
 

@@ -22,7 +22,7 @@ public class TipListAdapter extends BaseAdapter {
     private List<Tip> tips;
     private final LayoutInflater layoutInflater;
 
-    private static Map<String, Drawable> drawables = new HashMap<String, Drawable>();
+    public static Map<String, Drawable> drawables = new HashMap<String, Drawable>();
 
     public TipListAdapter(Context context, List<Tip> tips) {
         this.tips = tips;

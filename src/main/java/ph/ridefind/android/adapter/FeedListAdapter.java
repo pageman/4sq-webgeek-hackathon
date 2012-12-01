@@ -22,7 +22,7 @@ public class FeedListAdapter extends BaseAdapter {
     private List<Feed> feeds;
     private final LayoutInflater layoutInflater;
 
-    private static Map<String, Drawable> drawables = new HashMap<String, Drawable>();
+    public static Map<String, Drawable> drawables = new HashMap<String, Drawable>();
 
     public FeedListAdapter(Context context, List<Feed> feeds) {
         this.feeds = feeds;
