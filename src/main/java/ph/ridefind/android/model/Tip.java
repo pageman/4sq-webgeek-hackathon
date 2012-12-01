@@ -7,8 +7,11 @@ import java.util.Date;
 public class Tip {
     private Long id;
 
+    private String name;
+
     private String desc;
 
+    @JsonProperty("image_url")
     private String imageUrl;
 
     @JsonProperty("fsq_id")
@@ -28,6 +31,14 @@ public class Tip {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDesc() {

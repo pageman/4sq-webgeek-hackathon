@@ -37,15 +37,15 @@ public class MainActivity extends SherlockFragmentActivity {
 
         tabsAdapter = new TabsAdapter(this, tabHost, viewPager);
 
-        tabsAdapter.addTab(
-                tabHost.newTabSpec("hello world").setIndicator("FOOBARBAZ"),
-                CategoryListFragment_.class,
-                null
-        );
+//        tabsAdapter.addTab(
+//                tabHost.newTabSpec("hello world").setIndicator("FOOBARBAZ"),
+//                CategoryListFragment_.class,
+//                null
+//        );
 
         tabsAdapter.addTab(
-                tabHost.newTabSpec("jesus").setIndicator("christ"),
-                CategoryListFragment_.class,
+                tabHost.newTabSpec("tips").setIndicator("tips"),
+                TipListFragment_.class,
                 null
         );
 

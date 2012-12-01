@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import ph.ridefind.android.R;
-import ph.ridefind.android.model.Feed;
+import ph.ridefind.android.model.Tip;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,23 +18,23 @@ import java.util.Map;
 
 import static ph.ridefind.android.helper.DrawableHelper.*;
 
-public class FeedListAdapter extends BaseAdapter {
-    private List<Feed> feeds;
+public class TipListAdapter extends BaseAdapter {
+    private List<Tip> tips;
     private final LayoutInflater layoutInflater;
 
     private static Map<String, Drawable> drawables = new HashMap<String, Drawable>();
 
-    public FeedListAdapter(Context context, List<Feed> feeds) {
-        this.feeds = feeds;
+    public TipListAdapter(Context context, List<Tip> tips) {
+        this.tips = tips;
         this.layoutInflater = LayoutInflater.from(context);
     }
 
     public int getCount() {
-        return feeds.size();
+        return tips.size();
     }
 
-    public Feed getItem(int position) {
-        return feeds.get(position);
+    public Tip getItem(int position) {
+        return tips.get(position);
     }
 
     public long getItemId(int position) {
@@ -42,34 +42,36 @@ public class FeedListAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-        Feed feed = getItem(position);
+        Tip tip = getItem(position);
         View view = convertView;
 
         if (view == null) {
-            view = layoutInflater.inflate(R.layout.feed_list_item, viewGroup, false);
+            view = layoutInflater.inflate(R.layout.tip_list_item, viewGroup, false);
         }
 
         TextView name = (TextView) view.findViewById(R.id.name);
-        name.setText(feed.getName());
+        name.setText(tip.getName());
 
         TextView desc = (TextView) view.findViewById(R.id.desc);
-        desc.setText(feed.getDesc());
+        desc.setText(tip.getDesc());
 
         TextView date = (TextView) view.findViewById(R.id.date);
-        date.setText(feed.getCreatedAt().toString());
+        date.setText(tip.getCreatedAt().toString());
 
         ImageView image = (ImageView) view.findViewById(R.id.thumbnail);
-        String imageUrl = feed.getImageUrl();
-        if (drawables.get(imageUrl) != null) {
-            image.setImageDrawable(drawables.get(imageUrl));
-        } else {
-            new LoadContentTask().execute(image, imageUrl);
+        String imageUrl = tip.getImageUrl();
+        if (imageUrl != null) {
+            if (drawables.get(imageUrl) != null) {
+                image.setImageDrawable(drawables.get(imageUrl));
+            } else {
+                new X().execute(image, imageUrl);
+            }
         }
 
         return view;
     }
 
-    private class LoadContentTask extends AsyncTask<Object, Void, Drawable> {
+    private class X extends AsyncTask<Object, Void, Drawable> {
         private ImageView view;
         private String url;
 
