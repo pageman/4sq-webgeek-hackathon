@@ -11,4 +11,6 @@ public interface UserPreferences {
     String mall();
 
     String fsqId();
+
+    String token();
 }

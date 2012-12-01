@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.sharedpreferences.Pref;
 import ph.ridefind.android.R;
@@ -74,7 +73,13 @@ public class ActivityWebView
                             "Token: " + accessToken,
                             Toast.LENGTH_SHORT).show();
                     */
-                    preferences.edit().loggedIn().put(true).apply();
+                    preferences.clear();
+
+                    preferences.edit()
+                            .loggedIn().put(true)
+                            .token().put(accessToken)
+                            .apply();
+
                     finish();
                 }
             }
