@@ -40,5 +40,40 @@
         <item name="android:layout_margin">8dp</item>
     </style>
 
+    <style name="hr">
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:background">@color/green</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="label">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/normal</item>
+    </style>
+
+    <style name="label.bold">
+        <item name="android:color">@color/header</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/header</item>
+    </style>
+
+    <style name="label.large">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="label.large.bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="splash">
+        <item name="android:padding">0dp</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 
 </resources>
